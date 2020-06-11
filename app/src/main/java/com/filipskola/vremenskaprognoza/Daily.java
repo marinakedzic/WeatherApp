@@ -2,10 +2,10 @@ package com.filipskola.vremenskaprognoza;
 
 public class Daily {
     private String time;
-    private int temp;
-    private double wind;
+    private String temp;
+    private String wind;
     private String description;
-    public Daily(String time,  int temp, double wind, String description){
+    public Daily(String time,  String temp, String wind, String description){
         this.time = time;
         this.temp = temp;
         this.wind = wind;
@@ -20,19 +20,19 @@ public class Daily {
         this.time = time;
     }
 
-    public int getTemp() {
+    public String getTemp() {
         return temp;
     }
 
-    public void setTemp(int temp) {
+    public void setTemp(String temp) {
         this.temp = temp;
     }
 
-    public double getWind() {
+    public String getWind() {
         return wind;
     }
 
-    public void setWind(double wind) {
+    public void setWind(String wind) {
         this.wind = wind;
     }
 

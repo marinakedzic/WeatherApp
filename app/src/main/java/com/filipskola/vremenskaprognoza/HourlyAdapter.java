@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class HourlyAdapter extends ArrayAdapter<Hourly>{
     TextView rainTextView;
-    public HourlyAdapter(Activity context, ArrayList<Hourly> twelveHours) {
+    public HourlyAdapter(MainActivity.weatherTask context, ArrayList<Hourly> twelveHours) {
         super(context, 0, twelveHours);
     }
     private static final String LOG_TAG = ArrayAdapter.class.getSimpleName();

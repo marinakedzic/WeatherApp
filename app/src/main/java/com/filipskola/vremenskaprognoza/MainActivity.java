@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject currentWeather = jsonObj.getJSONObject("current");
                 JSONObject currentRainObj = currentWeather.getJSONArray("weather").getJSONObject(0);
                 JSONObject hourlyWeather = jsonObj.getJSONArray("hourly").getJSONObject(0);
-                JSONObject dailyWeather = jsonObj.getJSONArray("daily").getJSONObject(1);
+                JSONObject dailyWeather1 = jsonObj.getJSONArray("daily").getJSONObject(1);
 
                 Long time = currentWeather.getLong("dt");
                 String updatedtime = "Time " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(time * 1000));
@@ -97,6 +98,31 @@ public class MainActivity extends AppCompatActivity {
                 currentWindTxt.setText(currentWind+ "m/s");
                 String currentRain = currentRainObj.getString("main");
                 currentRainTxt.setText(currentRain);
+
+                ArrayList<Hourly> twelveHours = new ArrayList<Hourly>();
+                for (int i = 0; i<=12; i++){
+                    JSONObject hourlyWeather = jsonObj.getJSONArray("hourly").getJSONObject(0);
+                    Long updatedAt = hourlyWeather.getLong("dt");
+                    String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
+                    Double hourlyTempDouble = hourlyWeather.getDouble("temp");
+                    int hourlyTemp = (int) Math.round(hourlyTempDouble);
+                    String hourlyTempTxt = hourlyTemp + "°C";
+                    Double hourlyWind = hourlyWeather.getDouble("wind_speed");
+                    String hourlyWindTxt = hourlyWind+ "m/s";
+                    JSONObject hourlyRainPercent = hourlyWeather.getJSONObject("rain");
+                    Double hourlyRainPercent1 = hourlyRainPercent.getDouble("1h");
+                    Double percent = hourlyRainPercent1*100;
+                    String hourlyRainTxt = percent + "%";
+                    JSONObject hourlyRainDescriptionObj = hourlyWeather.getJSONArray("weather").getJSONObject(0);
+                    String hourlyRainDescription = hourlyRainDescriptionObj.getString("description");
+                    twelveHours.add(new Hourly(updatedAtText, hourlyTempTxt, hourlyWindTxt, hourlyRainTxt, hourlyRainDescription));
+
+                }
+                    HourlyAdapter hourlyAdapter = new HourlyAdapter(this, twelveHours);
+
+                    ListView listViewHourly = findViewById(R.id.listview_flavor);
+
+                    listViewHourly.setAdapter(hourlyAdapter);
 
                 Long updatedAt = hourlyWeather.getLong("dt");
                 String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
@@ -119,45 +145,41 @@ public class MainActivity extends AppCompatActivity {
 
 
                 ArrayList<Daily> sevenDays = new ArrayList<Daily>();
-                for (){
-                    JSONObject dailyWeather = jsonObj.getJSONArray("daily").getJSONObject(1);
+                for (int i = 1; i<=7; i++){
+                    JSONObject dailyWeather = jsonObj.getJSONArray("daily").getJSONObject(i);
+                    Long day = dailyWeather.getLong("dt");
+                    String dayText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(day * 1000));
+                    JSONObject dailyRainPercentObj = dailyWeather.getJSONObject("temp");
+                    Double  dailyTempDouble = dailyRainPercentObj.getDouble("day");
+                    int  dailyTemp = (int) Math.round(dailyTempDouble);
+                    String dailyTempTxt = dailyTemp + "°C";
+                    Double dailyWind = dailyWeather.getDouble("wind_speed");
+                    String dailyWindTxt = dailyWind+ "m/s";
+                    JSONObject dailyRainDescriptionObj = dailyWeather.getJSONArray("weather").getJSONObject(0);
+                    String dailyRainDescription = dailyRainDescriptionObj.getString("description");
+                    sevenDays.add(new Daily(dayText, dailyTempTxt, dailyWindTxt, dailyRainDescription));
+
                 }
+                    DailyAdapter dailyAdapter = new DailyAdapter(this, sevenDays);
 
-                sevenDays.add(new Daily("Donut", "1.6", R.drawable.donut));
+                    ListView listViewDaily =  findViewById(R.id.listview_flavor);
 
+                    listViewDaily.setAdapter(dailyAdapter);
 
-                sevenDays.add(new Daily("Eclair", "2.0-2.1", R.drawable.eclair));
-
-
-                sevenDays.add(new Daily("Froyo", "2.2-2.2.3", R.drawable.froyo));
                 //wind speed description temp
-                JSONObject dailyRainPercentObj = dailyWeather.getJSONObject("temp");
+                JSONObject dailyRainPercentObj = dailyWeather1.getJSONObject("temp");
                 Double  dailyTempDouble = dailyRainPercentObj.getDouble("day");
                 int  dailyTemp = (int) Math.round(dailyTempDouble);
                 dailyTempTxt.setText(dailyTemp + "°C");
-                Double dailyWind = dailyWeather.getDouble("wind_speed");
+                Double dailyWind = dailyWeather1.getDouble("wind_speed");
                 dailyWindTxt.setText(dailyWind+ "m/s");
-                JSONObject dailyRainDescriptionObj = dailyWeather.getJSONArray("weather").getJSONObject(0);
+                JSONObject dailyRainDescriptionObj = dailyWeather1.getJSONArray("weather").getJSONObject(0);
                 String dailyRainDescription = dailyRainDescriptionObj.getString("description");
                 dailyRainDescriptionTxt.setText(dailyRainDescription);
 
-                Long day = dailyWeather.getLong("dt");
+                Long day = dailyWeather1.getLong("dt");
                 String dayText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(day * 1000));
                 dailyTimeTxt.setText(dayText);
-                /* Populating extracted data into our views */
-                /*addressTxt.setText(address);
-                updated_atTxt.setText(updatedAtText);
-                statusTxt.setText(weatherDescription.toUpperCase());
-                tempTxt.setText(temp);
-                temp_minTxt.setText(tempMin);
-                temp_maxTxt.setText(tempMax);
-                sunriseTxt.setText(new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date(sunrise * 1000)));
-                sunsetTxt.setText(new SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(new Date(sunset * 1000)));
-                windTxt.setText(windSpeed);
-                pressureTxt.setText(pressure);
-                humidityTxt.setText(humidity);*/
-
-                /* Views populated, Hiding the loader, Showing the main design */
                 /*findViewById(R.id.loader).setVisibility(View.GONE);
                 findViewById(R.id.mainContainer).setVisibility(View.VISIBLE);*/}
             catch (Exception e){}

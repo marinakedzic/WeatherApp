@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class DailyAdapter extends ArrayAdapter<Daily> {
 
-    public DailyAdapter(Activity context, ArrayList<Daily> sevenDays) {
+    public DailyAdapter(MainActivity.weatherTask context, ArrayList<Daily> sevenDays) {
     super(context, 0, sevenDays);
     }
     private static final String LOG_TAG = ArrayAdapter.class.getSimpleName();

@@ -4,11 +4,11 @@ package com.filipskola.vremenskaprognoza;
 
 public class Hourly {
     private String time;
-    private int temp;
-    private double wind;
+    private String temp;
+    private String wind;
     private String description;
     private String rain;
-    public Hourly(String time,  int temp, double wind, String rain, String description){
+    public Hourly(String time,  String temp, String wind, String rain, String description){
         this.time = time;
         this.temp = temp;
         this.wind = wind;
@@ -24,19 +24,19 @@ public class Hourly {
         this.time = time;
     }
 
-    public int getTemp() {
+    public String getTemp() {
         return temp;
     }
 
-    public void setTemp(int temp) {
+    public void setTemp(String temp) {
         this.temp = temp;
     }
 
-    public double getWind() {
+    public String getWind() {
         return wind;
     }
 
-    public void setWind(double wind) {
+    public void setWind(String wind) {
         this.wind = wind;
     }
 
