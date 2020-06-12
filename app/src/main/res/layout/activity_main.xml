@@ -1,112 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#152238">
+    android:background="@drawable/background" >
 
+    <!-- Header -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        >
+        android:padding="15dp">
 
+        <!-- Daily (7 days calender) button -->
+        <ImageButton
+            android:id="@+id/SevenDays"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_alignParentLeft="true"
+            android:onClick="goOnDaily"
+            android:src="@drawable/calender"/>
+
+        <!-- Settings button -->
         <ImageButton
             android:id="@+id/Settings"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_launcher_background"
-            />
-
-        <Button
-            android:id="@+id/SevenDays"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_alignParentRight="true"
-            android:onClick="goOnDaily"
-            />
+            android:src="@drawable/settings"
+            android:onClick="settings"/>
 
-        <TextView
-            android:id="@+id/timeCurrent"
+        <!-- Time and City -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:text="00:00"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/Location"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:text="GRAD"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
+            <!-- Current Time -->
+            <TextView
+                android:id="@+id/timeCurrent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/letters"
+                android:textSize="24sp"
+                android:text="00:00"/>
 
-            />
+            <!-- Current City -->
+            <TextView
+                android:id="@+id/Location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/letters"
+                android:textSize="32sp"
+                android:text="CITY"/>
+        </LinearLayout>
 
     </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tempCurrent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <!-- Main Icon -->
+    <ImageView
+        android:id="@+id/mainIcon"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_gravity="center">
+    </ImageView>
+
+    <!-- Current Temperature -->
+    <TextView
+        android:id="@+id/tempCurrent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/letters"
+        android:textSize="54sp"
+        android:text="0"/>
+
+    <!-- Rain and Wind -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+
+        <!-- Clouds icon-->
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="100px"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="25dp"
-            android:text="0"
-            android:textColor="#ffffff"
-            android:textSize="50sp"
-            />
+            android:src="@drawable/cloud">
+        </ImageView>
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        tools:ignore="MissingConstraints"
-        android:padding="10dp">
-
+        <!-- Clouds data -->
         <TextView
-            android:id="@+id/rainCurrent"
+            android:id="@+id/cloudsCurrent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="RAIN"
-            android:textColor="#ffffff"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
-            android:textSize="25sp"
-            />
+            android:textColor="@color/letters"
+            android:textSize="24sp"
+            android:text="CLOUDS"/>
 
-        <TextView
-            android:id="@+id/windCurrent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="WIND"
-            android:textColor="#ffffff"
-            android:layout_alignParentRight="true"
-            android:textSize="25sp"
-            />
+        <!-- Current Wind -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+            <!-- Wind data -->
+            <TextView
+                android:id="@+id/windCurrent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/letters"
+                android:textSize="24sp"
+                android:text="WIND"
+                />
+
+            <!-- Wind Icon -->
+            <ImageView
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_gravity="center"
+                android:src="@drawable/wind"></ImageView>
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/list"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_margin="15dp"
+        android:dividerHeight="5dp"/>
+
 
 </LinearLayout>

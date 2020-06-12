@@ -1,110 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#152238"
     android:orientation="vertical"
-    android:padding="20dp"
-    >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="vertical"
-            >
+    android:background="@drawable/background">
 
-            <Button
-                android:id="@+id/backButton"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:text="Back"
-                android:verticalScrollbarPosition="defaultPosition" />
-        </RelativeLayout>
+    <!-- Settings Heading -->
+    <TextView
+        android:id="@+id/welcomeSettings"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Settings"
+        android:gravity="center"
+        android:textColor="@color/letters"
+        android:textSize="28sp">
+    </TextView>
 
-        <LinearLayout
-            android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+    <!-- Location -->
+    <RelativeLayout
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/boxcolor">
 
-            <ImageView
-                android:layout_width="124px"
-                android:layout_height="124px"
-                android:src="@drawable/ic_launcher_background"
-                ></ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location"
-                android:textColor="#ffffff"
-                android:textSize="32sp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center_vertical"
-                >
-            </TextView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/unitsystem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
-            <ImageView
-                android:layout_width="124px"
-                android:layout_height="124px"
-                android:src="@drawable/ic_launcher_background"
-                ></ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Unit system"
-                android:textColor="#ffffff"
-                android:textSize="32sp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center_vertical"
-                >
-            </TextView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/themecolor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
-            <ImageView
-                android:layout_width="124px"
-                android:layout_height="124px"
-                android:src="@drawable/ic_launcher_background"
-                ></ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Theme color"
-                android:textColor="#ffffff"
-                android:textSize="32sp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center_vertical"
-                >
-            </TextView>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/madeby"
+        <!-- Location text -->
+        <EditText
+            android:id="@+id/editLocation"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="bottom"
-            android:text="© Made by Marina Kedzic and Katarina Casic"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            ></TextView>
+            android:layout_height="wrap_content"
+            android:hint="Location"
+            android:textColor="@color/letters"
+            android:textSize="24sp"
+            android:textColorHint="#80ffffff"></EditText>
+    </RelativeLayout>
+
+
+
+    <!-- Unit system -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/boxcolor">
+
+        <!-- Unit system text -->
+        <TextView
+            android:id="@+id/metrictext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/letters"
+            android:textSize="24sp"
+            android:text="Unit system">
+        </TextView>
+
+        <!-- Unit system button -->
+        <ToggleButton
+            android:id="@+id/unitsystem"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:checked="true"
+            android:textOff="Metric"
+            android:textOn="Imperial"
+            android:onClick="unit"/>
+    </RelativeLayout>
+
+    <!-- Language -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/boxcolor">
+
+        <!-- Language text -->
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/letters"
+            android:textSize="24sp"
+            android:text="Language">
+        </TextView>
+
+        <!-- Language button -->
+        <ToggleButton
+            android:id="@+id/lang"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:checked="true"
+            android:textOff="Serbian"
+            android:textOn="English"
+            android:onClick="lang"/>
+    </RelativeLayout>
+
+    <!-- Final button -->
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:text="SAVE"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="#272727"
+        android:background="#eeeeee"
+        android:fadingEdge="horizontal"
+        android:onClick="start">
+    </Button>
+
+    <!-- Footer text -->
+    <TextView
+        android:id="@+id/team"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:layout_marginBottom="7dp"
+        android:textColor="@color/letters"
+        android:textSize="16sp"
+        android:text="© Made by Marina Kedzic and Katarina Casic">
+    </TextView>
 
 </LinearLayout>

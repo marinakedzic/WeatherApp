@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,9 @@ public class HourlyAdapter extends ArrayAdapter<Hourly>{
 
         TextView windTextView = convertView.findViewById(R.id.windHourly);
         windTextView.setText(currentHourly.getWind());
+
+        ImageView image = convertView.findViewById(R.id.hourlyIcon);
+        image.setImageResource(currentHourly.getImage());
 
 
 

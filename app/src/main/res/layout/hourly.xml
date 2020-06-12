@@ -1,65 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:layout_gravity="center"
     android:orientation="horizontal"
-    android:background="#fff">
+    android:background="@color/boxcolor">
 
-        <ImageView
-            android:layout_gravity="center"
-            android:layout_width="250px"
-            android:layout_height="250px"
-            android:src="@drawable/ic_launcher_background"
-            />
+    <!-- Hourly Weather icon -->
+    <ImageView
+        android:id="@+id/hourlyIcon"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        />
 
+    <!-- Hourly Temperature -->
+    <TextView
+        android:id="@+id/tempHourly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/letters"
+        android:textSize="28sp"
+        android:text="0">
+    </TextView>
+
+    <!-- Hourly Weather Data -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:gravity="right"
+        android:layout_margin="15dp">
+
+        <!-- Time -->
         <TextView
-            android:id="@+id/tempHourly"
-            android:layout_width="100dp"
+            android:id="@+id/timeHourly"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:text="0"
-            android:textSize="24sp">
+            android:layout_gravity="right"
+            android:textColor="@color/letters"
+            android:textSize="24sp"
+            android:text="Time">
         </TextView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Wind -->
+        <TextView
+            android:id="@+id/windHourly"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical"
-            android:padding="15dp"
-            >
+            android:layout_gravity="right"
+            android:textColor="@color/letters"
+            android:textSize="18sp"
+            android:text="Wind">
+        </TextView>
 
-            <TextView
-                android:id="@+id/timeHourly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="Time"
-                android:textSize="20sp"
-                >
-            </TextView>
-
-            <TextView
-                android:id="@+id/rainHourly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="Rain">
-            </TextView>
-
-            <TextView
-                android:id="@+id/windHourly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="Wind">
-            </TextView>
-
-        </LinearLayout>
+        <!-- Rain -->
+        <TextView
+            android:id="@+id/rainHourly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/letters"
+            android:textSize="18sp"
+            android:text="Rain">
+        </TextView>
+    </LinearLayout>
 
 </LinearLayout>

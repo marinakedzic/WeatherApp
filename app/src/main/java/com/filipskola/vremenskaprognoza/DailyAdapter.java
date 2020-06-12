@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,9 +46,13 @@ public class DailyAdapter extends ArrayAdapter<Daily> {
         TextView descriptionTextView = convertView.findViewById(R.id.rainDescription);
         descriptionTextView.setText(currentDaily.getDescription());
 
+        ImageView image = convertView.findViewById(R.id.dailyIcon);
+        image.setImageResource(currentDaily.getImage());
+
         return convertView;
 
 
     }
+
 
 }

@@ -5,11 +5,14 @@ public class Daily {
     private String temp;
     private String wind;
     private String description;
-    public Daily(String time,  String temp, String wind, String description){
+    private int image;
+    public Daily(){}
+    public Daily(String time,  String temp, String wind, String description, int image){
         this.time = time;
         this.temp = temp;
         this.wind = wind;
         this.description = description;
+        this.image = image;
     }
 
     public String getTime() {
@@ -42,5 +45,13 @@ public class Daily {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

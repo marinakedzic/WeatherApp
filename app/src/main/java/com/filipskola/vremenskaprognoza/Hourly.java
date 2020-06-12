@@ -8,13 +8,15 @@ public class Hourly {
     private String wind;
     private String description;
     private String rain;
+    private int image;
     public Hourly(){}
-    public Hourly(String time,  String temp, String wind, String rain, String description){
+    public Hourly(String time,  String temp, String wind, String rain, String description, int image){
         this.time = time;
         this.temp = temp;
         this.wind = wind;
         this.description = description;
         this.rain = rain;
+        this.image = image;
     }
 
     public String getTime() {
@@ -55,5 +57,13 @@ public class Hourly {
 
     public void setRain(String rain) {
         this.rain = rain;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }
