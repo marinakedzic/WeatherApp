@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#152238"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            >
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:text="Back"
+                android:verticalScrollbarPosition="defaultPosition" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="124px"
+                android:layout_height="124px"
+                android:src="@drawable/ic_launcher_background"
+                ></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="#ffffff"
+                android:textSize="32sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/unitsystem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="124px"
+                android:layout_height="124px"
+                android:src="@drawable/ic_launcher_background"
+                ></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unit system"
+                android:textColor="#ffffff"
+                android:textSize="32sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/themecolor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="124px"
+                android:layout_height="124px"
+                android:src="@drawable/ic_launcher_background"
+                ></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Theme color"
+                android:textColor="#ffffff"
+                android:textSize="32sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/madeby"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="bottom"
+            android:text="© Made by Marina Kedzic and Katarina Casic"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            ></TextView>
+
+</LinearLayout>

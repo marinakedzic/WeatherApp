@@ -1,6 +1,7 @@
 package com.filipskola.vremenskaprognoza;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,48 +14,46 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class HourlyAdapter extends ArrayAdapter<Hourly>{
-    TextView rainTextView;
-    public HourlyAdapter(MainActivity.weatherTask context, ArrayList<Hourly> twelveHours) {
-        super(context, 0, twelveHours);
+    private ArrayList<Hourly> twelveHours;
+    Context mContext;
+    public HourlyAdapter(ArrayList<Hourly> twelveHours, Context context) {
+        super(context,R.layout.hourly,twelveHours);
+        this.twelveHours = twelveHours;
+        this.mContext=context;
+
     }
     private static final String LOG_TAG = ArrayAdapter.class.getSimpleName();
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return super.getView(position, convertView, parent);
 
-        View listItemView = convertView;
-
-
-        if(listItemView == null) {
+        if(convertView == null) {
 
 
-            listItemView = LayoutInflater.from(getContext()).inflate(
-
-
-                    R.layout.kacinLayout, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.hourly, parent, false);
         }
-        Hourly currentDaily = getItem(position);
+        Hourly currentHourly = getItem(position);
 
-        TextView timeTextView = (TextView) listItemView.findViewById(R.id.version_name);
-        timeTextView.setText(currentDaily.getTime());
+        TextView timeTextView = convertView.findViewById(R.id.timeHourly);
+        timeTextView.setText(currentHourly.getTime());
 
-        TextView tempTextView = (TextView) listItemView.findViewById(R.id.version_name);
-        tempTextView.setText(currentDaily.getTemp());
+        TextView tempTextView = convertView.findViewById(R.id.tempHourly);
+        tempTextView.setText(currentHourly.getTemp());
 
-        TextView windTextView = (TextView) listItemView.findViewById(R.id.version_name);
-        windTextView.setText(currentDaily.getWind());
+        TextView windTextView = convertView.findViewById(R.id.windHourly);
+        windTextView.setText(currentHourly.getWind());
 
-        TextView descriptionTextView = (TextView) listItemView.findViewById(R.id.version_name);
-        descriptionTextView.setText(currentDaily.getDescription());
 
-        if(currentDaily.getRain() != null){
-            rainTextView = (TextView) listItemView.findViewById(R.id.version_name);
-        rainTextView.setText(currentDaily.getRain());}
+
+        if(currentHourly.getRain() != null){
+            TextView rainTextView = convertView.findViewById(R.id.rainHourly);
+            rainTextView.setText(currentHourly.getRain());}
         else{
-            rainTextView.setVisibility(View.GONE);
+            TextView descriptionTextView = convertView.findViewById(R.id.rainHourly);
+            descriptionTextView.setText(currentHourly.getDescription());
         }
-        return listItemView;
+
+        return convertView;
 
 
     }

@@ -8,6 +8,7 @@ public class Hourly {
     private String wind;
     private String description;
     private String rain;
+    public Hourly(){}
     public Hourly(String time,  String temp, String wind, String rain, String description){
         this.time = time;
         this.temp = temp;
