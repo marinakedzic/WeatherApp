@@ -196,4 +196,8 @@ public void settings(View view){
         Intent intent = new Intent(this, EditSettings.class);
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed(){
+        finishAffinity();
+    }
 }
