@@ -3,7 +3,6 @@
     <color name="colorPrimary">#272727</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#cccccc</color>
-    <color name="letters">#ffffff</color>
-    <color name="boxcolor">#80272727</color>
+    <color name="transparent">#00000000</color>
 
 </resources>

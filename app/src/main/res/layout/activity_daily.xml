@@ -5,32 +5,39 @@
     tools:context=".DailyActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background">
+    android:orientation="vertical">
 
     <!-- Header -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:padding="15dp">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:background="@drawable/shape1">
 
-        <!-- Back button -->
+        <!-- Back button
         <ImageButton
             android:id="@+id/backButton"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
-            android:verticalScrollbarPosition="defaultPosition"
-            android:onClick="onBack"
-            android:src="@drawable/back"/>
+            android:scaleType="fitCenter"
+            android:background="@color/transparent"
+            android:src="@drawable/back"
+            android:onClick="onBack"/>
+         -->
 
+        <!-- 7 Days title -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:textColor="@color/letters"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="15dp"
             android:textSize="28sp"
-            android:text="7 Days"></TextView>
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="7 Days">
+        </TextView>
 
         <!-- Settings button -->
         <ImageButton
@@ -38,18 +45,21 @@
             android:layout_width="150px"
             android:layout_height="150px"
             android:layout_alignParentRight="true"
-            android:verticalScrollbarPosition="defaultPosition"
+            android:layout_marginRight="15dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/settings"
-            android:onClick="settings"
-            />
+            android:background="@color/transparent"
+            android:onClick="settings">
+        </ImageButton>
     </RelativeLayout>
 
+    <!-- Daily Temperature list -->
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_margin="15dp"
-        android:dividerHeight="5dp"/>
+        android:layout_marginHorizontal="15dp"
+        android:dividerHeight="2dp">
+    </ListView>
 
 </LinearLayout>

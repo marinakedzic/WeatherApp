@@ -5,144 +5,183 @@
     tools:context=".MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background" >
+    android:orientation="vertical">
 
     <!-- Header -->
     <RelativeLayout
+        android:id="@+id/reltext"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:padding="15dp">
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@drawable/shape1">
 
         <!-- Daily (7 days calender) button -->
         <ImageButton
             android:id="@+id/SevenDays"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentLeft="true"
-            android:onClick="goOnDaily"
-            android:src="@drawable/calender"/>
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/calendar"
+            android:background="@color/transparent"
+            android:onClick="goOnDaily">
+        </ImageButton>
 
         <!-- Settings button -->
         <ImageButton
             android:id="@+id/Settings"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/settings"
-            android:onClick="settings"/>
+            android:background="@color/transparent"
+            android:onClick="settings">
+        </ImageButton>
 
-        <!-- Time and City -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Current Time -->
-            <TextView
-                android:id="@+id/timeCurrent"
+            <!-- Time, Date and Location -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textColor="@color/letters"
-                android:textSize="24sp"
-                android:text="00:00"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <!-- Current City -->
-            <TextView
-                android:id="@+id/Location"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textColor="@color/letters"
-                android:textSize="32sp"
-                android:text="CITY"/>
-        </LinearLayout>
+                <!-- Current Time -->
+                <TextView
+                    android:id="@+id/timeCurrent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="00:00">
+                </TextView>
+
+                <!-- Current Date -->
+                <TextView
+                    android:id="@+id/dateCurrent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="01.01.2001.">
+                </TextView>
+
+                <!-- Current Location -->
+                <TextView
+                    android:id="@+id/Location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="CITY">
+                </TextView>
+            </LinearLayout>
 
     </RelativeLayout>
 
-    <!-- Main Icon -->
-    <ImageView
-        android:id="@+id/mainIcon"
-        android:layout_width="250px"
-        android:layout_height="250px"
-        android:layout_gravity="center">
-    </ImageView>
-
-    <!-- Current Temperature -->
-    <TextView
-        android:id="@+id/tempCurrent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/letters"
-        android:textSize="54sp"
-        android:text="0"/>
-
-    <!-- Rain and Wind -->
+    <!-- Main Info -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_margin="15dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp"
+        android:padding="15dp"
+        android:background="@drawable/shape2">
 
-        <!-- Clouds icon-->
-
+        <!-- Main Icon -->
         <ImageView
-            android:layout_width="100px"
-            android:layout_height="100px"
-            android:layout_gravity="center"
-            android:src="@drawable/cloud">
+            android:id="@+id/mainIcon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal">
         </ImageView>
 
-        <!-- Clouds data -->
+        <!-- Current Temperature -->
         <TextView
-            android:id="@+id/cloudsCurrent"
+            android:id="@+id/tempCurrent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentLeft="true"
-            android:textColor="@color/letters"
-            android:textSize="24sp"
-            android:text="CLOUDS"/>
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textColor="@color/colorPrimary"
+            android:text="0">
+        </TextView>
 
-        <!-- Current Wind -->
+        <!-- Rain and Wind -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Wind data -->
+            <!-- Clouds icon-->
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/cloud">
+            </ImageView>
+
+            <!-- Clouds data -->
             <TextView
-                android:id="@+id/windCurrent"
+                android:id="@+id/cloudsCurrent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/letters"
-                android:textSize="24sp"
-                android:text="WIND"
-                />
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:text="CLOUDS">
+            </TextView>
 
-            <!-- Wind Icon -->
-            <ImageView
-                android:layout_width="100px"
-                android:layout_height="100px"
-                android:layout_gravity="center"
-                android:src="@drawable/wind"></ImageView>
+            <!-- Current Wind -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="right">
+
+                <!-- Wind data -->
+                <TextView
+                    android:id="@+id/windCurrent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="WIND">
+                </TextView>
+
+                <!-- Wind Icon -->
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wind">
+                </ImageView>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
 
+    <!-- Hourly Temperature list -->
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:dividerHeight="5dp"/>
-
+        android:layout_marginHorizontal="15dp"
+        android:dividerHeight="2dp">
+    </ListView>
 
 </LinearLayout>

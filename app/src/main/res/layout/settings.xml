@@ -1,122 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background">
+    android:orientation="vertical">
 
-    <!-- Settings Heading -->
+    <!-- Settings title -->
     <TextView
         android:id="@+id/welcomeSettings"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Settings"
-        android:gravity="center"
-        android:textColor="@color/letters"
-        android:textSize="28sp">
-    </TextView>
-
-    <!-- Location -->
-    <RelativeLayout
-        android:id="@+id/location"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:padding="15dp"
-        android:layout_margin="15dp"
-        android:background="@color/boxcolor">
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Settings">
+    </TextView>
 
-        <!-- Location text -->
-        <EditText
-            android:id="@+id/editLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Location"
-            android:textColor="@color/letters"
-            android:textSize="24sp"
-            android:textColorHint="#80ffffff"></EditText>
-    </RelativeLayout>
-
-
-
-    <!-- Unit system -->
-    <RelativeLayout
+    <!-- Options -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:padding="15dp"
-        android:layout_margin="15dp"
-        android:background="@color/boxcolor">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="15dp"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/shape2">
 
-        <!-- Unit system text -->
-        <TextView
-            android:id="@+id/metrictext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:textColor="@color/letters"
-            android:textSize="24sp"
-            android:text="Unit system">
-        </TextView>
+        <!-- Change Location -->
+        <RelativeLayout
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_vertical">
 
-        <!-- Unit system button -->
-        <ToggleButton
-            android:id="@+id/unitsystem"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:checked="true"
-            android:textOff="Metric"
-            android:textOn="Imperial"
-            android:onClick="unit"/>
-    </RelativeLayout>
+            <!-- Location text -->
+            <EditText
+                android:id="@+id/editLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Location"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="#80272727">
+            </EditText>
+        </RelativeLayout>
 
-    <!-- Language -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:padding="15dp"
-        android:layout_margin="15dp"
-        android:background="@color/boxcolor">
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#272727">
+        </View>
 
-        <!-- Language text -->
-        <TextView
-            android:id="@+id/language"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:textColor="@color/letters"
-            android:textSize="24sp"
-            android:text="Language">
-        </TextView>
+        <!-- Change Unit system -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
 
-        <!-- Language button -->
-        <ToggleButton
-            android:id="@+id/lang"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:checked="true"
-            android:textOff="Serbian"
-            android:textOn="English"
-            android:onClick="lang"/>
-    </RelativeLayout>
+            <!-- Unit system text -->
+            <TextView
+                android:id="@+id/metrictext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:text="Unit system">
+            </TextView>
 
-    <!-- Final button -->
+            <!-- Change Unit system button -->
+            <ToggleButton
+                android:id="@+id/unitsystem"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:checked="true"
+                android:textOn="Imperial"
+                android:textOff="Metric"
+                android:onClick="unit">
+            </ToggleButton>
+        </RelativeLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#272727">
+        </View>
+
+        <!-- Change Language -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <!-- Language text -->
+            <TextView
+                android:id="@+id/language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:text="Language">
+            </TextView>
+
+            <!-- Change Language button -->
+            <ToggleButton
+                android:id="@+id/lang"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:checked="true"
+                android:textOn="English"
+                android:textOff="Serbian"
+                android:onClick="lang">
+            </ToggleButton>
+        </RelativeLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#272727">
+        </View>
+
+        <!-- Turn on/off Notifications -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <!-- Notifications text -->
+            <TextView
+                android:id="@+id/notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:text="Notifications">
+            </TextView>
+
+            <!-- Turn on/off Notification button -->
+            <Switch
+                android:id="@+id/notifis"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:checked="true">
+            </Switch>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Save button -->
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:text="SAVE"
+        android:layout_marginTop="15dp"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:textColor="#272727"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
         android:background="#eeeeee"
-        android:fadingEdge="horizontal"
+        android:text="SAVE"
         android:onClick="start">
     </Button>
 
@@ -128,8 +180,8 @@
         android:layout_gravity="center"
         android:gravity="bottom"
         android:layout_marginBottom="7dp"
-        android:textColor="@color/letters"
-        android:textSize="16sp"
+        android:textSize="10sp"
+        android:textColor="@color/colorPrimary"
         android:text="© Made by Marina Kedzic and Katarina Casic">
     </TextView>
 

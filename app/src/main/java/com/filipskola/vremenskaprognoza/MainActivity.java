@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     String lang;
     String unit;
 
-    TextView currentWindTxt, currentTimeTxt,
+    TextView currentWindTxt, currentTimeTxt, currentDateTxt,
             currentRainTxt, currentTempTxt, currentLocationTxt;
 
     @Override
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         currentTimeTxt = findViewById(R.id.timeCurrent);
+        currentDateTxt = findViewById(R.id.dateCurrent);
         currentWindTxt = findViewById(R.id.windCurrent);
         currentRainTxt = findViewById(R.id.cloudsCurrent);
         currentTempTxt = findViewById(R.id.tempCurrent);
@@ -108,8 +109,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 long time = currentWeather.getLong("dt");
-                String updatedTime = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.ENGLISH).format(new Date(time * 1000));
+                String updatedTime = new SimpleDateFormat("HH:mm", Locale.ENGLISH).format(new Date(time * 1000));
+                String updatedDate = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH).format(new Date(time * 1000));
                 currentTimeTxt.setText(updatedTime);
+                currentDateTxt.setText(updatedDate);
                 double currentTempDouble = currentWeather.getDouble("temp");
                 double currentWind = currentWeather.getDouble("wind_speed");
                 if(unit.equals("metric")){
@@ -145,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject hourlyRainDescriptionObj = hour.getJSONArray("weather").getJSONObject(0);
                         String hourlyRainDescription = hourlyRainDescriptionObj.getString("description");
                         String weather1 = weatherObj.getString("main");
-                        if(weather1.equals("Rain") || weather1.equals("Drizzle")){
+                        if(weather1.equals("Rain") || weather1.equals("Drizzle") || hourlyRainDescription.equals("light rain")){
                             hourly.setImage(R.drawable.rain);
                         }
                         else if(weather1.equals("Thunderstorm")){

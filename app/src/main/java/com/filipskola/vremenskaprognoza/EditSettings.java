@@ -41,7 +41,7 @@ public class EditSettings extends AppCompatActivity {
         city = sharedPreferences.getString("city","");
         notification = sharedPreferences.getString("notification", "");
         EditText location = findViewById(R.id.editLocation);
-        location.setHint(city);
+        location.setText(city);
         ToggleButton unit1 = findViewById(R.id.unitsystem);
         ToggleButton lang1 = findViewById(R.id.lang);
 

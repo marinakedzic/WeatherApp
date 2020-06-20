@@ -3,47 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:orientation="horizontal"
-    android:background="@color/boxcolor">
+    android:layout_gravity="center">
 
-    <!-- Daily Weather icon -->
-    <ImageView
-        android:id="@+id/dailyIcon"
-        android:layout_width="250px"
-        android:layout_height="250px"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="15dp"
-        android:src="@drawable/rain"/>
-
-    <!-- Daily Temperature -->
-    <TextView
-        android:id="@+id/tempDaily"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:textColor="@color/letters"
-        android:textSize="28sp"
-        android:text="0">
-    </TextView>
-
-    <!-- Daily Weather Data -->
+    <!-- Daily Information -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_vertical"
-        android:padding="15dp">
+        android:gravity="left"
+        android:layout_margin="15dp">
 
         <!-- Date -->
         <TextView
             android:id="@+id/timeDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="@color/letters"
+            android:layout_gravity="left"
+            android:padding="5dp"
             android:textSize="24sp"
-            android:text="Date">
+            android:textColor="@color/colorPrimary"
+            android:text="Date"
+            android:background="@drawable/shape3">
         </TextView>
 
         <!-- Wind -->
@@ -51,23 +33,50 @@
             android:id="@+id/windDaily"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textColor="@color/letters"
+            android:layout_gravity="left"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:text="Wind">
         </TextView>
 
-        <!-- Rain -->
+        <!-- Rain description -->
         <TextView
             android:id="@+id/rainDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="@color/letters"
+            android:layout_gravity="left"
             android:textSize="18sp"
-            android:text="Rain description">
-
+            android:textColor="@color/colorPrimary"
+            android:text="Description">
         </TextView>
+    </LinearLayout>
+
+    <!-- Daily Weather Data -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="end">
+
+        <!-- Daily Temperature -->
+        <TextView
+            android:id="@+id/tempDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="24sp"
+            android:textColor="@color/colorPrimary"
+            android:text="0">
+        </TextView>
+
+        <!-- Daily Weather Icon -->
+        <ImageView
+            android:id="@+id/dailyIcon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="15dp">
+        </ImageView>
     </LinearLayout>
 
 </LinearLayout>
