@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VremenskaPrognoza</string>
+    <string name="app_name">Weather forecast</string>
 
     <string name="sunny">Its getting hot, make sure to get some sunglasses!</string>
     <string name="rainy">Its raining outside, make sure to bring your umbrella!</string>

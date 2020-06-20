@@ -121,39 +121,7 @@
             </ToggleButton>
         </RelativeLayout>
 
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#272727">
-        </View>
 
-        <!-- Turn on/off Notifications -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
-
-            <!-- Notifications text -->
-            <TextView
-                android:id="@+id/notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimary"
-                android:text="Notifications">
-            </TextView>
-
-            <!-- Turn on/off Notification button -->
-            <Switch
-                android:id="@+id/notifis"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:checked="true">
-            </Switch>
-        </RelativeLayout>
 
     </LinearLayout>
 

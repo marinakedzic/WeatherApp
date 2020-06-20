@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject hourlyRainDescriptionObj = hour.getJSONArray("weather").getJSONObject(0);
                         String hourlyRainDescription = hourlyRainDescriptionObj.getString("description");
                         String weather1 = weatherObj.getString("main");
-                        if(weather1.equals("Rain") || weather1.equals("Drizzle") || hourlyRainDescription.equals("light rain")){
+                        if(weather1.equals("Rain") || weather1.equals("Drizzle") || hourlyRainDescription.equals("light rain") || hourlyRainDescription.equals("кишица")){
                             hourly.setImage(R.drawable.rain);
                         }
                         else if(weather1.equals("Thunderstorm")){
